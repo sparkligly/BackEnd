@@ -1,0 +1,18 @@
+서버 미활용
+files://어쩌구 폴더/저쩌구.html
+
+서버(Apache Tomcat 7) 서버 활용
+http://localhost
+http://www.naver.com
+
+브라우저            ----------> 아파치톰캣 서버
+http://localhost
+
+
+브라우저(클라이언트)
+(인터넷 익스플로러, 사파리, 크롬,...)
+     |
+     |  http(브라우저<===>서버)
+     |   (TCP)
+서버(아파치 톰캣 7)
+

@@ -1,0 +1,41 @@
+아파치 톰캣 서버
+http://tomcat.apache.org
+
+http://www.naver.com:80
+
+http://localhost
+       127.0.0.1        IPv4
+       0:0:0:0:0:0:0:1  IPv6
+
+Apache Tomcat 7  서버
+1. 서버의 실행과 정지 관리.
+2. 서버는 클라이언트의 요청을 처리하기위한
+   경량화된 멀티 스레드를 관리.
+3. 스케일링 가능
+   (로드 밸런싱, 클러스터링, 보안정책 등등)
+4. 클라이언트의 정적인 요청과 동적인 요청을 구분
+   처리(Coyote Engine)
+5. 아파치 : 클라이언트의 정적인 요청의 응답 처리
+            http://localhost/어쩌구.html
+            http://localhost/어쩌구.png
+            http://localhost/어쩌구.xml
+            http://localhost/어쩌구.txt
+   톰캣 : 클라이언트의 동적인 요청의 응답 처리
+          Jasper Engine, Catalina Engine
+            http://localhost/어쩌구
+            http://localhost/어쩌구.jsp          
+            http://localhost/어쩌구.do
+
+
+        
+
+oracle 8i
+oracle 9i
+oracle 10g
+oracle 11g
+
+
+SVN  > redmine
+
+-- 이클립스에서 저장해 놓은 SVN의 패스워드를 삭제하는 방법
+c:\users\컴퓨터이름\AppData\Roaming\Subversion\auth\svn.simple 폴더를 삭제한다.

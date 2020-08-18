@@ -1,0 +1,106 @@
+[2019-12-23 10:05:34]  INFO (basic.SampleLog - main:13) - [INFO] log4j info 메서지 출력
+[2019-12-23 10:05:34]  WARN (basic.SampleLog - main:15) - [WARN] log4j 경고 메시지 출력 
+[2019-12-23 10:05:34] ERROR (basic.SampleLog - main:17) - [ERROR] log4j 에러 메시지 출력 연습
+[2019-12-23 10:05:34] FATAL (basic.SampleLog - main:19) - [FATAL] log4j 심각한 오류 출력 연습
+[2019-12-23 10:17:03]  INFO (util.BuildedSqlMapClient - <clinit>:23) - Charset 설정 완료...
+[2019-12-23 10:17:03] ERROR (util.BuildedSqlMapClient - <clinit>:37) - SqlMapClient 객체 생성 실패
+[2019-12-23 10:17:52]  INFO (util.BuildedSqlMapClient - <clinit>:23) - Charset 설정 완료...
+[2019-12-23 10:17:52]  INFO (util.BuildedSqlMapClient - <clinit>:27) - ibatis설정파일 읽기 성공
+[2019-12-23 10:18:40]  INFO (util.BuildedSqlMapClient - <clinit>:23) - Charset 설정 완료...
+[2019-12-23 10:18:40]  INFO (util.BuildedSqlMapClient - <clinit>:27) - ibatis설정파일 읽기 성공
+[2019-12-23 10:18:40]  INFO (util.BuildedSqlMapClient - <clinit>:32) - SqlMapClient객체 생성 완료
+[2019-12-23 10:18:40]  INFO (util.BuildedSqlMapClient - <clinit>:35) - Reder 스트림 객체 닫기 완료
+[2019-12-23 10:18:40]  INFO (util.BuildedSqlMapClient - getSqlMapClient:43) - SqlMapClient객체 반환
+[2019-12-23 11:07:32]  INFO (util.BuildedSqlMapClient - <clinit>:23) - Charset 설정 완료...
+[2019-12-23 11:07:32]  INFO (util.BuildedSqlMapClient - <clinit>:27) - ibatis설정파일 읽기 성공
+[2019-12-23 11:07:32]  INFO (util.BuildedSqlMapClient - <clinit>:32) - SqlMapClient객체 생성 완료
+[2019-12-23 11:07:32]  INFO (util.BuildedSqlMapClient - <clinit>:35) - Reder 스트림 객체 닫기 완료
+[2019-12-23 11:07:32]  INFO (util.BuildedSqlMapClient - getSqlMapClient:43) - SqlMapClient객체 반환
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100000} Connection
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100000} Connection
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100000} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100000} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Parameters: []
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Parameters: []
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Types: [java.lang.String]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100001} Types: [java.lang.String]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} ResultSet
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} ResultSet
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [21, ibatis 연습, 변학도, 2019-12-23, 1, ibatis를 이용한 게시판 처리 연습]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [21, ibatis 연습, 변학도, 2019-12-23, 1, ibatis를 이용한 게시판 처리 연습]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [7, kkkk, mmm, 2019-12-18, 0, slkdfs sldfkjsdl]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [7, kkkk, mmm, 2019-12-18, 0, slkdfs sldfkjsdl]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [5, 네번째, 이순신, 2019-12-18, 0, 네번째 게시글 입니다.]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [5, 네번째, 이순신, 2019-12-18, 0, 네번째 게시글 입니다.]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [4, 세번째, 이몽룡, 2019-12-18, 0, 세번째 게시글]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [4, 세번째, 이몽룡, 2019-12-18, 0, 세번째 게시글]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [3, 두번째 게시글, 두번째 게시글입니다., 2019-12-18, 0, 두번째 게시글 입니다.]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [3, 두번째 게시글, 두번째 게시글입니다., 2019-12-18, 0, 두번째 게시글 입니다.]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [1, 첫번째 게시글, 홍길동, 2019-12-18, 0, 첫번째 게시글 연습입니다.]
+[2019-12-23 11:07:33] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100002} Result: [1, 첫번째 게시글, 홍길동, 2019-12-18, 0, 첫번째 게시글 연습입니다.]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100003} Connection
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100003} Connection
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100003} Preparing Statement:    update jdbc_board set board_cnt = board_cnt + 1    where board_no = ?   
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100003} Preparing Statement:    update jdbc_board set board_cnt = board_cnt + 1    where board_no = ?   
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Executing Statement:    update jdbc_board set board_cnt = board_cnt + 1    where board_no = ?   
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Executing Statement:    update jdbc_board set board_cnt = board_cnt + 1    where board_no = ?   
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Parameters: [7]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Parameters: [7]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Types: [java.lang.Integer]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100004} Types: [java.lang.Integer]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100005} Connection
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100005} Connection
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100005} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_no = ?  
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100005} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_no = ?  
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_no = ?  
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_no = ?  
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Parameters: [7]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Parameters: [7]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Types: [java.lang.Integer]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100006} Types: [java.lang.Integer]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} ResultSet
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} ResultSet
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} Result: [7, kkkk, mmm, 2019-12-18, 1, slkdfs sldfkjsdl]
+[2019-12-23 11:08:15] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100007} Result: [7, kkkk, mmm, 2019-12-18, 1, slkdfs sldfkjsdl]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100008} Connection
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100008} Connection
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100008} Preparing Statement:    update jdbc_board set     board_title = ?,     board_content = ?,    board_date = sysdate    where board_no = ?   
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100008} Preparing Statement:    update jdbc_board set     board_title = ?,     board_content = ?,    board_date = sysdate    where board_no = ?   
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Executing Statement:    update jdbc_board set     board_title = ?,     board_content = ?,    board_date = sysdate    where board_no = ?   
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Executing Statement:    update jdbc_board set     board_title = ?,     board_content = ?,    board_date = sysdate    where board_no = ?   
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Parameters: [log4j연습용, ibatis의 sql문이 출력됩니다., 7]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Parameters: [log4j연습용, ibatis의 sql문이 출력됩니다., 7]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Types: [java.lang.String, java.lang.String, java.lang.Integer]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100009} Types: [java.lang.String, java.lang.String, java.lang.Integer]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100010} Connection
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100010} Connection
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100010} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {conn-100010} Preparing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Executing Statement:    select board_no, board_title, board_writer,     to_char(board_date, 'yyyy-mm-dd') board_date,     board_cnt, board_content    from jdbc_board    where board_title like '%' || ? || '%'    order by board_no desc  
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Parameters: []
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Parameters: []
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Types: [java.lang.String]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {pstm-100011} Types: [java.lang.String]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} ResultSet
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} ResultSet
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Header: [BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CNT, BOARD_CONTENT]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [21, ibatis 연습, 변학도, 2019-12-23, 1, ibatis를 이용한 게시판 처리 연습]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [21, ibatis 연습, 변학도, 2019-12-23, 1, ibatis를 이용한 게시판 처리 연습]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [7, log4j연습용, mmm, 2019-12-23, 1, ibatis의 sql문이 출력됩니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [7, log4j연습용, mmm, 2019-12-23, 1, ibatis의 sql문이 출력됩니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [5, 네번째, 이순신, 2019-12-18, 0, 네번째 게시글 입니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [5, 네번째, 이순신, 2019-12-18, 0, 네번째 게시글 입니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [4, 세번째, 이몽룡, 2019-12-18, 0, 세번째 게시글]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [4, 세번째, 이몽룡, 2019-12-18, 0, 세번째 게시글]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [3, 두번째 게시글, 두번째 게시글입니다., 2019-12-18, 0, 두번째 게시글 입니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [3, 두번째 게시글, 두번째 게시글입니다., 2019-12-18, 0, 두번째 게시글 입니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [1, 첫번째 게시글, 홍길동, 2019-12-18, 0, 첫번째 게시글 연습입니다.]
+[2019-12-23 11:09:49] DEBUG (log4j.Log4jImpl - debug:26) - {rset-100012} Result: [1, 첫번째 게시글, 홍길동, 2019-12-18, 0, 첫번째 게시글 연습입니다.]
