@@ -1,0 +1,34 @@
+SQL활용 문제
+
+문제1]  [1.1수정결과화면_성명_20190906]로 저장
+
+
+CREATE TABLE MEMBER2 
+AS  SELECT * FROM MEMBER;
+
+
+UPDATE MEMBER2
+   SET MEM_JOB='군인'
+ WHERE MEM_NAME = '김은대';  
+ 
+COMMIT;
+
+SELECT MEM_NAME, MEM_JOB
+  FROM MEMBER2
+ WHERE MEM_NAME = '김은대';  
+
+
+문제2]   [1.2뷰테이블리스트_성명_20190906]로 저장
+
+--상품별 매입금액합계를 뷰로작성
+
+CREATE OR REPLACE VIEW VW_PROD_BUY
+AS
+SELECT PROD_ID  AS 상품번호,
+       PROD_NAME  AS 상품명,
+       SUM(BUY_QTY*BUY_COST) AS 매입금액합계
+  FROM PROD, BUYPROD
+ WHERE PROD_ID=BUY_PROD
+ GROUP BY PROD_ID, PROD_NAME;  
+ 
+Select * from user_views; 

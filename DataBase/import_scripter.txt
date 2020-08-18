@@ -1,0 +1,2 @@
+ imp 사용자계정/암호 file=expall.dmp  ignore=y  grants=y rows=y
+     indexes=y full=y

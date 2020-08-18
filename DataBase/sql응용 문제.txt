@@ -1,0 +1,86 @@
+SQL 응용
+
+문제1] [1.1프로시져생성_성명_20190924]로 저장
+
+(1)
+
+CREATE OR REPLACE PROCEDURE usp_prod_totalstock_update 
+    ( v_prod_id IN prod.prod_id%TYPE, 
+      v_qty         IN prod.prod_totalstock%TYPE )               
+IS        
+BEGIN
+   UPDATE prod 
+          SET prod_totalstock = prod_totalstock + v_qty
+    WHERE prod_id = v_prod_id;
+   DBMS_OUTPUT.PUT_LINE('정상적으로 업데이트 되었습니다.');
+   COMMIT;
+
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('예외 발생:' || SQLERRM);
+      ROLLBACK;
+END;
+
+
+(2)  
+
+create or replace procedure test01(
+  p_mem_id in member.mem_id%type,
+  p_id out member.mem_id%type)
+is
+begin
+  select mem_id into p_id
+    from member
+   where mem_id in (p_mem_id,'b001',p_mem_id,p_mem_id);
+end;
+
+
+(3)
+CREATE OR REPLACE PROCEDURE usp_MemberCartTop
+    ( p_year                  IN  VARCHAR2, 
+      p_amt                OUT  NUMBER ,  
+      p_mem_name   OUT member.mem_name%TYPE )               
+IS            
+    v_year VARCHAR2(5);
+BEGIN
+     v_year := (p_year || '%');
+    SELECT  mem_name, mem_amt  INTO  p_mem_name, p_amt
+      FROM (
+    SELECT mem_name, SUM(prod_price * cart_qty) mem_amt
+       FROM member, cart, prod
+      WHERE cart_no LIKE v_year
+           AND cart_member = mem_id
+           AND cart_prod = prod_id
+      GROUP BY mem_name    
+      ORDER BY SUM(prod_price * cart_qty)  DESC
+      )
+      WHERE  ROWNUM <= 1 ;
+END; 
+
+
+
+
+
+문제2]   [1.2상품구매갯수합계_성명_20190924]로 저장
+
+SELECT A.CART_PROD  AS  상품코드,
+       B.PROD_NAME  AS  상품명,
+       SUM(A.CART_QTY)  AS  "구매수량 합계",
+       TO_CHAR(SUM(A.CART_QTY * B.PROD_PRICE),'999,999,999') AS "구매금액 합계"
+  FROM CART A, PROD B   
+ WHERE B.PROD_ID=A.CART_PROD
+ GROUP BY A.CART_PROD, B.PROD_NAME
+ ORDER BY A.CART_PROD; 
+ 
+ 
+ EXPLAIN PLAN SET STATEMENT_ID='query8' FOR
+   SELECT A.CART_PROD  AS  상품코드,
+          B.PROD_NAME  AS  상품명,
+          SUM(A.CART_QTY)  AS  "구매수량 합계",
+          TO_CHAR(SUM(A.CART_QTY * B.PROD_PRICE),'999,999,999') AS "구매금액 합계"
+     FROM CART A, PROD B   
+    WHERE B.PROD_ID=A.CART_PROD
+    GROUP BY A.CART_PROD, B.PROD_NAME
+    ORDER BY A.CART_PROD; 
+ 
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY); 

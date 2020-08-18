@@ -1,0 +1,161 @@
+2019-11-20)PL/SQL
+  - Procedural Language SQL
+  - 표준 SQL의 기능을 확장한 SQL
+  - 변수, 커서, 상수, 제어문 제공
+  - block 구조로 구성되며 모듈화와 은닉성(캡슐화) 기능 제공
+  - 익명블록, function, stored procedure, trigger, package 등이 있음
+  
+1. 익명블록(Anonymous Block)
+  - PL/SQL의 기본이되는 구조
+  - 이름부가 존재하지 않아 재사용을 할 수 없음
+  (사용형식)
+DECLARE
+  변수, 상수, 커서 선언;
+BEGIN
+  실행부;
+  
+  [EXCEPTION 
+     예외처리부;]
+
+END;
+
+ 1)변수(상수)
+  . BEGIN 블럭에서 사용한 기억공간 이름(데이터) 선언
+  . 응용프로그램의 변수오(상수)와 동일
+  (사용형식)
+  변수명[CONSTANT] 데이터타입 [:=초기값];
+  '데이터타입': 표준 sql에서 사용되는 데이터 타입
+    (1) BINARY_INTEGER : -2147483638~2147483647까지의 정수
+    (2) PLS_INTEGER    :       ""   (효율적)
+    (3) BOOLEAN : 논리값(TRUE, FALSE, NULL)
+  **참조형데이터 타입
+    테이블명.컬럼명%TYPE : '테이블명.컬럼명'과 같은 타입의 같은 크기 선언
+    테이블명%ROWTYPE : '테이블'의 하나의 행과 같은 타입 선언
+    
+예) 콘솔에 'My First PL/SQL Program'을 출력하는 익명블록을 작성하시오
+
+DECLARE
+  V_MESS VARCHAR2(50);
+BEGIN
+  V_MESS:='My First PL/SQL Program';
+  
+  DBMS_OUTPUT.PUT_LINE(V_MESS);
+END;  
+
+예)사원테이블에서 급여가 가장 많은 사원의 사원번호,이름,급여,부서번호을
+   출력하는 익명블록을 작성하시오
+DECLARE
+  V_EMP_ID EMPLOYEES.EMPLOYEE_ID%TYPE;
+  V_NAME   EMPLOYEES.EMP_NAME%TYPE;
+  V_SAL    EMPLOYEES.SALARY%TYPE;
+  V_DEPT_NAME  DEPARTMENTS.DEPARTMENT_NAME%TYPE; 
+BEGIN 
+   SELECT B.EMPLOYEE_ID, B.EMP_NAME, A.MSAL, C.DEPARTMENT_NAME   
+     INTO V_EMP_ID,V_NAME,V_SAL,V_DEPT_NAME
+     FROM (SELECT MAX(SALARY) AS MSAL
+             FROM EMPLOYEES) A, EMPLOYEES B, DEPARTMENTS C
+    WHERE B.SALARY=A.MSAL
+      AND B.DEPARTMENT_ID=C.DEPARTMENT_ID
+      AND ROWNUM=1; 
+      
+   DBMS_OUTPUT.PUT_LINE('사원번호 : '||V_EMP_ID);   
+   DBMS_OUTPUT.PUT_LINE('사원명 : '||V_NAME);
+   DBMS_OUTPUT.PUT_LINE('급  여 : '||V_SAL);
+   DBMS_OUTPUT.PUT_LINE('부서명 : '||V_DEPT_NAME);   
+END;   
+ 
+예)2005년 가장 많은 금액을 구매한 회원정보를 조회하는 익명블록을 작성하시오
+   (회원번호, 회원명, 구매액)
+DECLARE   
+  V_ID  CART.CART_MEMBER%TYPE;
+  V_NAME  MEMBER.MEM_NAME%TYPE;
+  V_SUM NUMBER(10):=0;
+BEGIN
+  SELECT A.CART_MEMBER, B.MEM_NAME, A.TSUM  INTO V_ID,V_NAME,V_SUM
+    FROM (SELECT CART_MEMBER, SUM(PROD_PRICE*CART_QTY) AS TSUM
+            FROM CART, PROD
+           WHERE CART_PROD=PROD_ID
+             AND CART_NO LIKE '2005%'
+           GROUP BY CART_MEMBER
+           ORDER BY 2 DESC) A, MEMBER B
+   WHERE A.CART_MEMBER=B.MEM_ID
+     AND ROWNUM=1;
+     
+  DBMS_OUTPUT.PUT_LINE('회원번호 : '||V_ID);
+  DBMS_OUTPUT.PUT_LINE('회원명 : '||V_NAME);
+  DBMS_OUTPUT.PUT_LINE('구매금액 : '||V_SUM);
+END; 
+
+예)키보드로 상품코드를 입력받아 해당 상품의 2005년도 매입액 합계를 출력하는
+   익명블록을 구성하시오
+   (상품코드, 상품명, 매입수량합계, 매입금액합계)
+(사용형식)
+ACCEPT 변수 PROMPT '메시지'
+
+
+
+ACCEPT P_CODE PROMPT '상품코드 입력 : '
+DECLARE
+  V_CODE PROD.PROD_ID%TYPE:='&P_CODE';
+  V_NAME PROD.PROD_NAME%TYPE;
+  V_SQTY NUMBER(5):=0;
+  V_ISUM NUMBER(10):=0;
+  V_RES  VARCHAR2(250);
+BEGIN
+  SELECT PROD_NAME,SUM(BUY_QTY),SUM(BUY_QTY*BUY_COST)
+    INTO V_NAME,V_SQTY,V_ISUM 
+    FROM BUYPROD, PROD
+   WHERE BUY_PROD=V_CODE
+     AND BUY_PROD=PROD_ID
+     AND EXTRACT(YEAR FROM BUY_DATE)=2005
+   GROUP BY PROD_NAME;
+  V_RES:=V_CODE||', '||V_NAME||', '||V_SQTY||', '||V_ISUM;
+  DBMS_OUTPUT.PUT_LINE(V_RES);
+  
+  EXCEPTION 
+    WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('예외발생 : '||SQLERRM);   
+END;
+   
+예)키보드로 분류번호를 입력하여 분류번호와 분류명을 출력하는 익명블록 작성
+
+ACCEPT P_ID PROMPT '분류코드 : '
+DECLARE
+  V_ID  LPROD.LPROD_GU%TYPE;
+  V_NAME LPROD.LPROD_NM%TYPE;
+  V_RES  VARCHAR2(50);
+BEGIN
+  V_ID:='&P_ID';
+  
+  SELECT LPROD_NM   INTO V_NAME
+    FROM LPROD
+   WHERE LPROD_GU=V_ID; --=>
+  
+  V_RES:=V_ID||' => '||V_NAME;
+  DBMS_OUTPUT.PUT_LINE(V_RES);
+   
+  EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('해당 자료가 없읍니다');
+      WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('너무 많은 결과가 도출되었습니다');
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('기타 예외 : '||SQLERRM);
+END;
+   
+   
+   
+   
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

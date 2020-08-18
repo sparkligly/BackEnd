@@ -1,0 +1,5 @@
+2019-10-22) 숫자형 함수
+
+    -   ROUND,TRUNC,MOD,--반올립 절삭
+    -   REMAINDER,CELL,FLOOR,SIGNL,POWER,SQRT
+
